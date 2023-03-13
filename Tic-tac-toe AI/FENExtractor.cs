@@ -1,13 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Tic_tac_toe_AI
 {
-    public class Board
+    
+    /// <summary>
+    /// T3 standing for tic-tac-toe
+    /// </summary>
+    public class T3Board
     {
         public List<char> board = new List<char>();
         public bool isXToPlay = true;
 
-        public Board()
+        public T3Board()
         {
             for (int index = 0; index < 9; ++index)
             {
@@ -18,11 +23,18 @@ namespace Tic_tac_toe_AI
     
     public static class FENExtractor
     {
-        public static Board ExtractFEN(string FEN)
+        public static T3Board ExtractFEN(string FEN)
         {
-            Board b = new Board();
-            int row = 0;
-            int boardIndex = 0;
+            T3Board b = new T3Board();
+            ParseFEN(FEN, b);
+
+            return b;
+        }
+
+        private static void ParseFEN(string FEN, T3Board b)
+        {
+            int row = 0, boardIndex = 0;
+            FEN = FEN.ToLower();
             for (int index = 0; index < FEN.Length; ++index)
             {
                 if (FEN[index] == '/' || FEN[index] == ' ')
@@ -40,7 +52,7 @@ namespace Tic_tac_toe_AI
                     {
                         b.isXToPlay = false;
                     }
-                    
+
                     break;
                 }
 
@@ -58,7 +70,7 @@ namespace Tic_tac_toe_AI
                         int number = FEN[index] - '0';
                         if (number < 10 && number >= 0)
                         {
-                            for (int index2 = 0; index2 < number; ++index2)
+                            for (int counter = 0; counter < number; ++counter)
                             {
                                 b.board[boardIndex] = '_';
                                 boardIndex++;
@@ -67,8 +79,6 @@ namespace Tic_tac_toe_AI
                         break;
                 }
             }
-
-            return b;
         }
     }
 }
