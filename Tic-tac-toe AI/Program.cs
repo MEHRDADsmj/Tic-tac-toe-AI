@@ -6,8 +6,10 @@ namespace Tic_tac_toe_AI
     {
         public static void Main(string[] args)
         {
-            T3Board b = FENExtractor.ExtractFEN("2x/oox/oo1 o");
-            Console.WriteLine("Hello World!");
+            T3Board b = FENExtractor.ExtractFEN("3/3/3 x");
+            string str = FENExtractor.ExportFEN(b);
+            Console.WriteLine(str);
+            Console.ReadKey();
         }
     }
 }

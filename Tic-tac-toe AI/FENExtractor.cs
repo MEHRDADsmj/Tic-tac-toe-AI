@@ -31,6 +31,47 @@ namespace Tic_tac_toe_AI
             return b;
         }
 
+        public static string ExportFEN(T3Board b)
+        {
+            string FEN = "";
+            for (int row = 0; row < 3; ++row)
+            {
+                int emptyCounter = 0;
+                for (int col = 0; col < 3; ++col)
+                {
+                    int index = row * 3 + col;
+                    if (b.board[index] == '_')
+                    {
+                        ++emptyCounter;
+                    }
+                    else
+                    {
+                        if (emptyCounter != 0)
+                        {
+                            FEN += emptyCounter.ToString();
+                            emptyCounter = 0;
+                        }
+
+                        FEN += b.board[index];
+                    }
+                }
+                
+                if (emptyCounter != 0)
+                {
+                    FEN += emptyCounter.ToString();
+                }
+
+                if (row != 2)
+                {
+                    FEN += '/';
+                }
+            }
+
+            FEN += " ";
+            FEN += b.isXToPlay ? "x" : "o";
+            return FEN;
+        }
+
         private static void ParseFEN(string FEN, T3Board b)
         {
             int row = 0, boardIndex = 0;
