@@ -21,19 +21,19 @@
         private static bool CheckRows(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[1] && b.board[1] == b.board[2] && b.board[0] != '_')
+            if (b.GetAt(0) == b.GetAt(1) && b.GetAt(1) == b.GetAt(2) && b.GetAt(0) != '_')
             {
-                isX = b.board[0] == 'x';
+                isX = b.GetAt(0) == 'x';
                 return true;
             }
-            else if (b.board[3] == b.board[4] && b.board[4] == b.board[5] && b.board[3] != '_')
+            else if (b.GetAt(3) == b.GetAt(4) && b.GetAt(4) == b.GetAt(5) && b.GetAt(3) != '_')
             {
-                isX = b.board[3] == 'x';
+                isX = b.GetAt(3) == 'x';
                 return true;
             }
-            else if (b.board[6] == b.board[7] && b.board[7] == b.board[8] && b.board[6] != '_')
+            else if (b.GetAt(6) == b.GetAt(7) && b.GetAt(7) == b.GetAt(8) && b.GetAt(6) != '_')
             {
-                isX = b.board[6] == 'x';
+                isX = b.GetAt(6) == 'x';
                 return true;
             }
 
@@ -43,19 +43,19 @@
         private static bool CheckCols(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[3] && b.board[3] == b.board[6] && b.board[0] != '_')
+            if (b.GetAt(0) == b.GetAt(3) && b.GetAt(3) == b.GetAt(6) && b.GetAt(0) != '_')
             {
-                isX = b.board[0] == 'x';
+                isX = b.GetAt(0) == 'x';
                 return true;
             }
-            else if (b.board[1] == b.board[4] && b.board[4] == b.board[7] && b.board[1] != '_')
+            else if (b.GetAt(1) == b.GetAt(4) && b.GetAt(4) == b.GetAt(7) && b.GetAt(1) != '_')
             {
-                isX = b.board[1] == 'x';
+                isX = b.GetAt(1) == 'x';
                 return true;
             }
-            else if (b.board[2] == b.board[5] && b.board[5] == b.board[8] && b.board[2] != '_')
+            else if (b.GetAt(2) == b.GetAt(5) && b.GetAt(5) == b.GetAt(8) && b.GetAt(2) != '_')
             {
-                isX = b.board[2] == 'x';
+                isX = b.GetAt(2) == 'x';
                 return true;
             }
 
@@ -65,14 +65,14 @@
         private static bool CheckDiagonally(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[4] && b.board[4] == b.board[8] && b.board[0] != '_')
+            if (b.GetAt(0) == b.GetAt(4) && b.GetAt(4) == b.GetAt(8) && b.GetAt(0) != '_')
             {
-                isX = b.board[0] == 'x';
+                isX = b.GetAt(0) == 'x';
                 return true;
             }
-            else if (b.board[2] == b.board[4] && b.board[4] == b.board[6] && b.board[2] != '_')
+            else if (b.GetAt(2) == b.GetAt(4) && b.GetAt(4) == b.GetAt(6) && b.GetAt(2) != '_')
             {
-                isX = b.board[2] == 'x';
+                isX = b.GetAt(2) == 'x';
                 return true;
             }
 

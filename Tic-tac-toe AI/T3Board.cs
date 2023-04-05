@@ -7,8 +7,8 @@ namespace Tic_tac_toe_AI
     /// </summary>
     public class T3Board
     {
-        public List<char> board = new List<char>();
-        public bool isXToPlay = true;
+        private List<char> board = new List<char>();
+        private bool isXToPlay = true;
 
         public T3Board()
         {
@@ -64,6 +64,36 @@ namespace Tic_tac_toe_AI
         {
             int score = Evaluator.EvaluateBoard(currentBoard);
             return !AreMovesLeft(currentBoard) || score != 0;
+        }
+
+        public char GetAt(int index)
+        {
+            if (index >= 0 || index < 9)
+            {
+                return board[index];
+            }
+
+            return '+';
+        }
+
+        public void SetAt(int index, char c)
+        {
+            if (c != 'x' && c != 'o' && c != '_')
+            {
+                return;
+            }
+
+            board[index] = c;
+        }
+
+        public bool GetIsXToPlay()
+        {
+            return isXToPlay;
+        }
+
+        public void SetIsXToPlay(bool value)
+        {
+            isXToPlay = value;
         }
     }
 }

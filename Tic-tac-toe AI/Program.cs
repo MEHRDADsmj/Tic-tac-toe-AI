@@ -12,7 +12,7 @@ namespace Tic_tac_toe_AI
             Console.WriteLine(str);
             while (!T3Board.IsGameFinished(FENExtractor.ExtractFEN(str)))
             {
-                str = AIMovePicker.FindBestMove(str, depthToSearch, !FENExtractor.ExtractFEN(str).isXToPlay);
+                str = AIMovePicker.FindBestMove(str, depthToSearch, !FENExtractor.ExtractFEN(str).GetIsXToPlay());
                 Console.WriteLine(str);
             }
             Console.ReadKey();

@@ -22,7 +22,7 @@ namespace Tic_tac_toe_AI
                 for (int col = 0; col < 3; ++col)
                 {
                     int index = row * 3 + col;
-                    if (b.board[index] == '_')
+                    if (b.GetAt(index) == '_')
                     {
                         ++emptyCounter;
                     }
@@ -34,7 +34,7 @@ namespace Tic_tac_toe_AI
                             emptyCounter = 0;
                         }
 
-                        FEN += b.board[index];
+                        FEN += b.GetAt(index);
                     }
                 }
                 
@@ -50,7 +50,7 @@ namespace Tic_tac_toe_AI
             }
 
             FEN += " ";
-            FEN += b.isXToPlay ? "x" : "o";
+            FEN += b.GetIsXToPlay() ? "x" : "o";
             return FEN;
         }
 
@@ -69,11 +69,11 @@ namespace Tic_tac_toe_AI
                 {
                     if (FEN[index] == 'x')
                     {
-                        b.isXToPlay = true;
+                        b.SetIsXToPlay(true);
                     }
                     else if (FEN[index] == 'o')
                     {
-                        b.isXToPlay = false;
+                        b.SetIsXToPlay(false);
                     }
 
                     break;
@@ -82,11 +82,11 @@ namespace Tic_tac_toe_AI
                 switch (FEN[index])
                 {
                     case 'x':
-                        b.board[boardIndex] = 'x';
+                        b.SetAt(boardIndex, 'x');
                         boardIndex++;
                         break;
                     case 'o':
-                        b.board[boardIndex] = 'o';
+                        b.SetAt(boardIndex, 'o');
                         boardIndex++;
                         break;
                     default:
@@ -95,7 +95,7 @@ namespace Tic_tac_toe_AI
                         {
                             for (int counter = 0; counter < number; ++counter)
                             {
-                                b.board[boardIndex] = '_';
+                                b.SetAt(boardIndex, '_');
                                 boardIndex++;
                             }
                         }
