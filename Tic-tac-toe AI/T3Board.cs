@@ -18,7 +18,7 @@ namespace Tic_tac_toe_AI
             }
         }
 
-        public T3Board(T3Board board)
+        private T3Board(T3Board board)
         {
             foreach (var item in board.board)
             {
@@ -47,7 +47,7 @@ namespace Tic_tac_toe_AI
             return nextPossibleMoves;
         }
 
-        public static bool AreMovesLeft(T3Board currentBoard)
+        private static bool AreMovesLeft(T3Board currentBoard)
         {
             foreach (var item in currentBoard.board)
             {

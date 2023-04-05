@@ -16,7 +16,7 @@ namespace Tic_tac_toe_AI
             return FENExtractor.ExportFEN(bestMove);
         }
 
-        public static T3Board EvaluateBoardMove(T3Board currentBoard, int depth, int maxDepth, bool isMaximizer)
+        private static T3Board EvaluateBoardMove(T3Board currentBoard, int depth, int maxDepth, bool isMaximizer)
         {
             if (depth >= maxDepth || T3Board.IsGameFinished(currentBoard))
             {
