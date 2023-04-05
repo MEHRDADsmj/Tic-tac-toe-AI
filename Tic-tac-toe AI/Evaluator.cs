@@ -21,17 +21,17 @@
         private static bool CheckRows(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[1] && b.board[1] == b.board[2])
+            if (b.board[0] == b.board[1] && b.board[1] == b.board[2] && b.board[0] != '_')
             {
                 isX = b.board[0] == 'x';
                 return true;
             }
-            else if (b.board[3] == b.board[4] && b.board[4] == b.board[5])
+            else if (b.board[3] == b.board[4] && b.board[4] == b.board[5] && b.board[3] != '_')
             {
                 isX = b.board[3] == 'x';
                 return true;
             }
-            else if (b.board[6] == b.board[7] && b.board[7] == b.board[8])
+            else if (b.board[6] == b.board[7] && b.board[7] == b.board[8] && b.board[6] != '_')
             {
                 isX = b.board[6] == 'x';
                 return true;
@@ -43,17 +43,17 @@
         private static bool CheckCols(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[3] && b.board[3] == b.board[6])
+            if (b.board[0] == b.board[3] && b.board[3] == b.board[6] && b.board[0] != '_')
             {
                 isX = b.board[0] == 'x';
                 return true;
             }
-            else if (b.board[1] == b.board[4] && b.board[4] == b.board[7])
+            else if (b.board[1] == b.board[4] && b.board[4] == b.board[7] && b.board[1] != '_')
             {
                 isX = b.board[1] == 'x';
                 return true;
             }
-            else if (b.board[2] == b.board[5] && b.board[5] == b.board[8])
+            else if (b.board[2] == b.board[5] && b.board[5] == b.board[8] && b.board[2] != '_')
             {
                 isX = b.board[2] == 'x';
                 return true;
@@ -65,12 +65,12 @@
         private static bool CheckDiagonally(T3Board b, out bool isX)
         {
             isX = false;
-            if (b.board[0] == b.board[4] && b.board[4] == b.board[8])
+            if (b.board[0] == b.board[4] && b.board[4] == b.board[8] && b.board[0] != '_')
             {
                 isX = b.board[0] == 'x';
                 return true;
             }
-            else if (b.board[2] == b.board[4] && b.board[4] == b.board[6])
+            else if (b.board[2] == b.board[4] && b.board[4] == b.board[6] && b.board[2] != '_')
             {
                 isX = b.board[2] == 'x';
                 return true;

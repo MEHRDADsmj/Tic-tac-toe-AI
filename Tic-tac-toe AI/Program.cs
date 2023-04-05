@@ -6,9 +6,14 @@ namespace Tic_tac_toe_AI
     {
         public static void Main(string[] args)
         {
-            T3Board b = FENExtractor.ExtractFEN("3/3/3 x");
-            string str = AIMovePicker.FindBestMove("3/1o1/3 o");
+            // o is the maximizer, x is the minimizer
+            string str = "3/3/3 x";
             Console.WriteLine(str);
+            while (!T3Board.IsGameFinished(FENExtractor.ExtractFEN(str)))
+            {
+                str = AIMovePicker.FindBestMove(str, !FENExtractor.ExtractFEN(str).isXToPlay);
+                Console.WriteLine(str);
+            }
             Console.ReadKey();
         }
     }

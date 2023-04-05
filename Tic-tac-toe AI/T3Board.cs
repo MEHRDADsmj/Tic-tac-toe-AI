@@ -59,5 +59,11 @@ namespace Tic_tac_toe_AI
 
             return false;
         }
+
+        public static bool IsGameFinished(T3Board currentBoard)
+        {
+            int score = Evaluator.EvaluateBoard(currentBoard);
+            return !AreMovesLeft(currentBoard) || score != 0;
+        }
     }
 }
